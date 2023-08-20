@@ -1,27 +1,41 @@
-# React + TypeScript + Vite
+# React Internship Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Page 1
+### Component 1
+   * React Form with Formik and Yup Validation
+   * Uses Formik for form state management and validation.
+   * Applies validation rules using Yup schema.
+   * Displays error messages for invalid input.
+   * Submits user data to localStorage.
+   * Navigates to the next page on successful submission.
 
-Currently, two official plugins are available:
+Validation Rules:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   * name: Required field, displays an error if empty.
+   * phone: Requires numeric input, displays an error for non-numeric characters.
+   * email: Requires a valid email format, displays an error for invalid emails.
 
-## Expanding the ESLint configuration
+Navigation (useNavigate):
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+   * Navigates to the next page (/page2) upon successful form submission.
 
-- Configure the top-level `parserOptions` property like this:
+## Page 2
+### Component 2
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Data Fetching:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   * Uses the axios library to make an HTTP GET request to retrieve data from the JSONPlaceholder API.
+   * Fetches a list of posts represented by the Post interface.
+
+DataGrid (DataGrid Component):
+
+   * Utilizes the Material-UI DataGrid component to display tabular data.
+   * Populates the grid with data fetched from the API.
+
+### Component 3
+   * Renders an accordion-style UI using Material-UI's Accordion, AccordionSummary, and AccordionDetails components.
+   * Utilizes the React useState hook to manage the state for checkboxes.
+   * checked state stores the checked status for departments and sub-departments.
+   * Ensures that when a department is checked, all its sub-departments are also checked.
+   * When only few sub departments are checked , the Department goes to an intermediate stage symbolised by "-".
+   * Ensures that when all sub-departments of a department are checked, the department checkbox is also checked.
