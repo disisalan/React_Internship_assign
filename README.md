@@ -1,36 +1,27 @@
-# React_Internship_assign
-React Assignment for internship at "GrowMeOrganic"
+# React + TypeScript + Vite
 
-# Page 1:
-    ## Component 1 :
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-    *Manages user input for name, phone, and email.
-    *Uses Formik for form state management and validation.
-    *Applies validation rules using Yup schema.
-    *Submits user data to localStorage.
+Currently, two official plugins are available:
 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-    ### Validation Rules:
+## Expanding the ESLint configuration
 
-    *name: Required field, displays an error if empty.
-    *phone: Requires numeric input, displays an error for non-numeric characters.
-    *email: Requires a valid email format, displays an error for invalid emails.
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-    ### Navigation (useNavigate):
+- Configure the top-level `parserOptions` property like this:
 
-    *Navigates to the next page (/page2) upon successful form submission.
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
-# Page 2
-    ## Component 2 :
-    
-    *Uses the axios library to make an HTTP GET request to retrieve data from the JSONPlaceholder API.
-    *Utilizes the Material-UI DataGrid component to display tabular data.
-
-    ## Component 3 :
-
-    *Renders an accordion-style UI using Material-UI's Accordion, AccordionSummary, and AccordionDetails components.
-    *Ensures that when a department is checked, all its sub-departments are also checked.
-    *Updates the checked state when a sub-department checkbox is checked or unchecked.
-    *There is an Intermediate state of department when only some sub departments are selected sybolised by "-".
-    *Ensures that when all sub-departments of a department are checked, the department checkbox is also checked.
-
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
